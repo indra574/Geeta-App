@@ -3,7 +3,8 @@
 // appear in the Gita itself (by chapter, then verse).
 //
 // Each entry has:
-// - sanskrit / transliteration: the original verse
+// - sanskrit / transliteration: the original verse and its Roman transliteration
+// - translation: a proper English translation of the verse itself
 // - plot: the Mahabharata narrative context — when this shlok was spoken and
 //   what situation prompted it
 // - story: a short original tale a parent can tell their child to illustrate it
@@ -22,6 +23,8 @@ export const stories = [
       'मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः। आगमापायिनोऽनित्यास्तांस्तितिक्षस्व भारत॥',
     transliteration:
       "mātrā-sparśās tu kaunteya śītoṣṇa-sukha-duḥkha-dāḥ, āgamāpāyino 'nityās tāṁs titikṣasva bhārata",
+    translation:
+      'The contact between the senses and their objects gives rise to fleeting feelings of heat and cold, pleasure and pain. They come and go, and never last — bear them patiently, Arjuna.',
     plot:
       "This is from Chapter 2, spoken just after Arjuna sinks to the floor of his chariot on the battlefield of Kurukshetra, overwhelmed with grief and confusion at the thought of fighting his own family and teachers on the other side. Before diving into deeper philosophy, Krishna starts simply — reminding Arjuna that the flood of feelings he's experiencing, like all sensations, will rise and pass, and asking him to bear with them patiently.",
     story:
@@ -39,6 +42,8 @@ export const stories = [
       'न जायते म्रियते वा कदाचि न्नायं भूत्वा भविता वा न भूयः। अजो नित्यः शाश्वतोऽयं पुराणो न हन्यते हन्यमाने शरीरे॥',
     transliteration:
       "na jāyate mriyate vā kadācin nāyaṁ bhūtvā bhavitā vā na bhūyaḥ, ajo nityaḥ śāśvato 'yaṁ purāṇo na hanyate hanyamāne śarīre",
+    translation:
+      'The soul is never born, and it never dies. It does not come into being, nor does it ever cease to be. It is unborn, eternal, everlasting, and ancient — it is not killed when the body is killed.',
     plot:
       "One of the very first deep teachings in the Gita, from Chapter 2. Arjuna is paralyzed by the fear of causing death in battle, so before anything else, Krishna teaches him about the true, indestructible nature of the soul — explaining that what we truly are was never born and can never die.",
     story:
@@ -56,6 +61,8 @@ export const stories = [
       'वासांसि जीर्णानि यथा विहाय नवानि गृह्णाति नरोऽपराणि। तथा शरीराणि विहाय जीर्णा न्यन्यानि संयाति नवानि देही॥',
     transliteration:
       "vāsāṁsi jīrṇāni yathā vihāya navāni gṛhṇāti naro 'parāṇi, tathā śarīrāṇi vihāya jīrṇāny anyāni saṁyāti navāni dehī",
+    translation:
+      'Just as a person casts off worn-out clothes and puts on new ones, so the soul casts off worn-out bodies and takes on other, new ones.',
     plot:
       "Part of Krishna's early teaching in Chapter 2 on the eternal soul. To help Arjuna understand why the body's ending isn't the end of who we truly are, Krishna offers this simple, memorable image — comparing the soul moving between bodies to a person simply changing clothes.",
     story:
@@ -73,6 +80,8 @@ export const stories = [
       'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन। मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥',
     transliteration:
       "karmaṇy-evādhikāras te mā phaleṣu kadācana, mā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi",
+    translation:
+      'You have a right to perform your actions, but never to the fruits those actions bring. Let the fruit of action never be your motive, and never be attached to not acting either.',
     plot:
       "This comes early in the Gita, in Chapter 2. Arjuna, the great warrior, has just dropped his bow on the battlefield of Kurukshetra, refusing to fight because he sees his own grandfather, teachers, and cousins standing on the opposing side. His charioteer, Krishna, begins gently counseling him — and this famous line is the heart of Krishna's very first lesson: focus on your effort, not on the outcome.",
     story:
@@ -90,6 +99,8 @@ export const stories = [
       'प्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान्। आत्मन्येवात्मना तुष्टः स्थितप्रज्ञस्तदोच्यते॥',
     transliteration:
       'prajahāti yadā kāmān sarvān pārtha mano-gatān, ātmany evātmanā tuṣṭaḥ sthita-prajñas tadocyate',
+    translation:
+      'When a person gives up all the desires of the mind, O Partha, and is content in the Self, by the Self alone — then they are said to be one of steady wisdom.',
     plot:
       "Back in Chapter 2, Arjuna asks Krishna directly: what does a truly wise, steady person look like? This verse is the beginning of Krishna's answer, describing someone whose contentment comes entirely from within, not from chasing outward things.",
     story:
@@ -107,6 +118,8 @@ export const stories = [
       'यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः। स यत्प्रमाणं कुरुते लोकस्तदनुवर्तते॥',
     transliteration:
       'yad yad ācarati śreṣṭhas tat tad evetaro janaḥ, sa yat pramāṇaṁ kurute lokas tad anuvartate',
+    translation:
+      'Whatever a great person does, others follow. Whatever standard they set, the world pursues.',
     plot:
       "From Chapter 3, where Arjuna wonders why Krishna, who has nothing left to achieve, still continues to act in the world. Krishna's answer becomes this teaching: because whatever a respected person does, others follow — so he keeps setting an example.",
     story:
@@ -124,6 +137,8 @@ export const stories = [
       'श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात्। स्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥',
     transliteration:
       'śreyān sva-dharmo viguṇaḥ para-dharmāt sv-anuṣṭhitāt, sva-dharme nidhanaṁ śreyaḥ para-dharmo bhayāvahaḥ',
+    translation:
+      "It is better to do one's own duty imperfectly than to do another's duty perfectly. It is better to fail at your own path than to succeed at one that was never truly yours.",
     plot:
       "From Chapter 3, where Krishna is teaching Arjuna about karma yoga, the path of right action. Arjuna is torn about his own duty as a warrior compared to other paths he could take, and Krishna answers plainly: it's better to imperfectly do the work that is truly yours than to borrow someone else's.",
     story:
@@ -141,6 +156,8 @@ export const stories = [
       'यदा यदा हि धर्मस्य ग्लानिर्भवति भारत। अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥',
     transliteration:
       'yadā yadā hi dharmasya glānir bhavati bhārata, abhyutthānam adharmasya tadātmānaṁ sṛjāmy aham',
+    translation:
+      'Whenever goodness declines, O Bharata, and wrongdoing rises, I manifest myself, age after age.',
     plot:
       "This verse opens Chapter 4, where Krishna reveals a surprising secret to Arjuna: this is not the first time he has taught this wisdom, and he has appeared across many ages before. Here he explains why — whenever goodness in the world grows weak, he returns to restore it.",
     story:
@@ -158,6 +175,8 @@ export const stories = [
       'परित्राणाय साधूनां विनाशाय च दुष्कृताम्। धर्मसंस्थापनार्थाय सम्भवामि युगे युगे॥',
     transliteration:
       'paritrāṇāya sādhūnāṁ vināśāya ca duṣkṛtām, dharma-saṁsthāpanārthāya sambhavāmi yuge yuge',
+    translation:
+      'To protect the good, to stop those who do wrong, and to firmly re-establish what is right, I appear in every age.',
     plot:
       "The very next verse in Chapter 4, continuing Krishna's revelation about his repeated appearances across time — explaining that he comes specifically to protect those who are good and to gently correct what has gone wrong in the world.",
     story:
@@ -175,6 +194,8 @@ export const stories = [
       'ये यथा मां प्रपद्यन्ते तांस्तथैव भजाम्यहम्। मम वर्त्मानुवर्तन्ते मनुष्याः पार्थ सर्वशः॥',
     transliteration:
       'ye yathā māṁ prapadyante tāṁs tathaiva bhajāmy aham, mama vartmānuvartante manuṣyāḥ pārtha sarvaśaḥ',
+    translation:
+      'In whatever way people approach me, I receive them in that very same way. Everyone follows my path, in every way, O Partha.',
     plot:
       "From Chapter 4, where Krishna explains something remarkable about how he relates to every person differently, meeting each one exactly according to how they approach him — no single path is favored over another.",
     story:
@@ -192,6 +213,8 @@ export const stories = [
       'उद्धरेदात्मनात्मानं नात्मानमवसादयेत्। आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः॥',
     transliteration:
       'uddhared ātmanātmānaṁ nātmānam avasādayet, ātmaiva hyātmano bandhur ātmaiva ripur ātmanaḥ',
+    translation:
+      'Let a person lift themselves up by their own mind, and not let themselves sink down. The mind alone is the friend of the self, and the mind alone is its enemy.',
     plot:
       "This verse is from Chapter 6, where Krishna moves on to teaching Arjuna about meditation and inner discipline, describing how a person can train their own mind. Here, Krishna pauses to make sure Arjuna understands: the mind can either lift you up or drag you down, and it's entirely within your power to choose which.",
     story:
@@ -209,6 +232,8 @@ export const stories = [
       'युक्ताहारविहारस्य युक्तचेष्टस्य कर्मसु। युक्तस्वप्नावबोधस्य योगो भवति दुःखहा॥',
     transliteration:
       'yuktāhāra-vihārasya yukta-ceṣṭasya karmasu, yukta-svapnāvabodhasya yogo bhavati duḥkha-hā',
+    translation:
+      'For one who is balanced in eating and recreation, balanced in effort at work, and balanced in sleep and waking, yoga becomes the destroyer of all sorrow.',
     plot:
       "From Chapter 6, as Krishna lays out practical instructions for a yogi's daily life — how to eat, rest, and live in a way that supports real inner peace, rather than extremes in either direction.",
     story:
@@ -226,6 +251,8 @@ export const stories = [
       'यो मां पश्यति सर्वत्र सर्वं च मयि पश्यति। तस्याहं न प्रणश्यामि स च मे न प्रणश्यति॥',
     transliteration:
       'yo māṁ paśyati sarvatra sarvaṁ ca mayi paśyati, tasyāhaṁ na praṇaśyāmi sa ca me na praṇaśyati',
+    translation:
+      'For one who sees me everywhere, and sees everything in me, I am never lost to them, and they are never lost to me.',
     plot:
       "Also from Chapter 6, near the end of Krishna's teaching on meditation. Arjuna has been learning how a yogi steadies their mind — and here Krishna describes the highest fruit of that practice: a person who has trained themselves to see him, and love, in absolutely everything they look at.",
     story:
@@ -243,6 +270,8 @@ export const stories = [
       'आत्मौपम्येन सर्वत्र समं पश्यति योऽर्जुन। सुखं वा यदि वा दुःखं स योगी परमो मतः॥',
     transliteration:
       "ātmaupamyena sarvatra samaṁ paśyati yo 'rjuna, sukhaṁ vā yadi vā duḥkhaṁ sa yogī paramo mataḥ",
+    translation:
+      'The one who, through the likeness of their own self, sees the same in every being, Arjuna — in joy and in sorrow alike — is considered the highest yogi.',
     plot:
       "The closing verse of Krishna's teaching on meditation in Chapter 6, where he defines the very highest kind of yogi — not by rituals or techniques, but by their ability to feel every other being's joy and sorrow exactly as their own.",
     story:
@@ -260,6 +289,8 @@ export const stories = [
       'अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते। तेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम्॥',
     transliteration:
       'ananyāś cintayanto māṁ ye janāḥ paryupāsate, teṣāṁ nityābhiyuktānāṁ yoga-kṣemaṁ vahāmy aham',
+    translation:
+      'For those who think of me constantly, with no thought of anything else, ever devoted — I carry what they need and preserve what they already have.',
     plot:
       "From Chapter 9, right after Krishna describes the many ways people worship him — here he makes a personal promise to those who think of him with single, wholehearted devotion: he will personally look after what they need.",
     story:
@@ -277,6 +308,8 @@ export const stories = [
       'पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति। तदहं भक्त्युपहृतमश्नामि प्रयतात्मनः॥',
     transliteration:
       'patraṁ puṣpaṁ phalaṁ toyaṁ yo me bhaktyā prayacchati, tad ahaṁ bhakty-upahṛtam aśnāmi prayatātmanaḥ',
+    translation:
+      'Whoever offers me a leaf, a flower, a fruit, or water with devotion, I accept that offering of love from the pure of heart.',
     plot:
       "Also in Chapter 9, immediately following that promise — Krishna explains just how simple true devotion can be, saying that even the humblest offering, given with love, is enough for him to accept gladly.",
     story:
@@ -294,6 +327,8 @@ export const stories = [
       'समोऽहं सर्वभूतेषु न मे द्वेष्योऽस्ति न प्रियः। ये भजन्ति तु मां भक्त्या मयि ते तेषु चाप्यहम्॥',
     transliteration:
       "samo 'haṁ sarva-bhūteṣu na me dveṣyo 'sti na priyaḥ, ye bhajanti tu māṁ bhaktyā mayi te teṣu cāpy aham",
+    translation:
+      'I am equally present in all beings — none is hateful to me, and none is dearer than another. But those who worship me with devotion live in me, and I live in them.',
     plot:
       "Found in Chapter 9, where Krishna reveals what he calls 'the king of knowledge' — his deepest teaching yet on his own true, vast nature. In the middle of describing how he pervades and sustains the whole universe, Krishna reassures Arjuna that despite his cosmic scale, he holds no favorites among living beings.",
     story:
@@ -311,6 +346,8 @@ export const stories = [
       'मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु। मामेवैष्यसि युक्त्वैवमात्मानं मत्परायणः॥',
     transliteration:
       'man-manā bhava mad-bhakto mad-yājī māṁ namaskuru, mām evaiṣyasi yuktvaivam ātmānaṁ mat-parāyaṇaḥ',
+    translation:
+      'Fix your mind on me, be devoted to me, offer your actions to me, bow down to me — united with me this way, taking me as your highest goal, you shall come to me.',
     plot:
       "The final verse of Chapter 9, where Krishna wraps up his teaching on devotion with simple, direct instructions to Arjuna: keep me in your thoughts, love me, and you will always find your way back to me.",
     story:
@@ -328,6 +365,8 @@ export const stories = [
       'अद्वेष्टा सर्वभूतानां मैत्रः करुण एव च। निर्ममो निरहङ्कारः समदुःखसुखः क्षमी॥',
     transliteration:
       'adveṣṭā sarva-bhūtānāṁ maitraḥ karuṇa eva ca, nirmamo nirahaṅkāraḥ sama-duḥkha-sukhaḥ kṣamī',
+    translation:
+      'One who hates no being, who is friendly and compassionate to all, free of possessiveness and ego, equal in pain and pleasure, and forgiving —',
     plot:
       "This verse begins a passage in Chapter 12 where Arjuna has just asked Krishna what qualities make someone truly dear to him. Krishna answers with a list of gentle, humble qualities — starting with kindness and compassion toward every being, without exception.",
     story:
@@ -345,6 +384,8 @@ export const stories = [
       'यस्मान्नोद्विजते लोको लोकान्नोद्विजते च यः। हर्षामर्षभयोद्वेगैर्मुक्तो यः स च मे प्रियः॥',
     transliteration:
       'yasmān nodvijate loko lokān nodvijate ca yaḥ, harṣāmarṣa-bhayodvegair mukto yaḥ sa ca me priyaḥ',
+    translation:
+      'One by whom the world is not troubled, and who is not troubled by the world, who is free from joy, envy, fear, and anxiety — that person is dear to me.',
     plot:
       "Continuing that same list from Chapter 12, describing the ideal devotee — here Krishna adds that such a person neither troubles the world around them nor is easily troubled by it, staying steady through both joy and fear.",
     story:
@@ -362,6 +403,8 @@ export const stories = [
       'ममैवांशो जीवलोके जीवभूतः सनातनः। मनःषष्ठानीन्द्रियाणि प्रकृतिस्थानि कर्षति॥',
     transliteration:
       'mamaivāṁśo jīva-loke jīva-bhūtaḥ sanātanaḥ, manaḥ-ṣaṣṭhānīndriyāṇi prakṛti-sthāni karṣati',
+    translation:
+      'An eternal fragment of myself becomes, in this world of living beings, an eternal living soul, drawing to itself the mind and the five senses resting in nature.',
     plot:
       "From Chapter 15, where Krishna describes the nature of the soul and the whole of existence using the image of a great cosmic tree. In the middle of that teaching, he pauses to say something intimate: a tiny, eternal fragment of himself lives on inside every living being.",
     story:
@@ -379,6 +422,8 @@ export const stories = [
       'दातव्यमिति यद्दानं दीयतेऽनुपकारिणे। देशे काले च पात्रे च तद्दानं सात्त्विकं स्मृतम्॥',
     transliteration:
       "dātavyam iti yad dānaṁ dīyate 'nupakāriṇe, deśe kāle ca pātre ca tad dānaṁ sāttvikaṁ smṛtam",
+    translation:
+      'A gift given simply because it ought to be given, to someone who can offer nothing back, at the right place and time, and to a worthy person — that giving is called pure.',
     plot:
       "This verse is from Chapter 17, where Krishna categorizes different kinds of giving. Arjuna has asked about actions performed with or without following scripture, and here Krishna describes the purest form of charity — given simply because it is right, expecting nothing in return.",
     story:
@@ -396,6 +441,8 @@ export const stories = [
       'ईश्वरः सर्वभूतानां हृद्देशेऽर्जुन तिष्ठति। भ्रामयन्सर्वभूतानि यन्त्रारूढानि मायया॥',
     transliteration:
       "īśvaraḥ sarva-bhūtānāṁ hṛd-deśe 'rjuna tiṣṭhati, bhrāmayan sarva-bhūtāni yantrārūḍhāni māyayā",
+    translation:
+      'The Divine dwells in the heart of every being, Arjuna, gently turning them on their journey, as if seated at the wheel.',
     plot:
       "This comes from Chapter 18, the Gita's final chapter, where Krishna is drawing together everything he has taught across their long conversation. As he prepares to give Arjuna his ultimate instruction, he reminds him of something foundational: the Divine resides in the heart of every single being, quietly guiding their journey.",
     story:
@@ -413,6 +460,8 @@ export const stories = [
       'सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज। अहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः॥',
     transliteration:
       'sarva-dharmān parityajya mām ekaṁ śaraṇaṁ vraja, ahaṁ tvāṁ sarva-pāpebhyo mokṣayiṣyāmi mā śucaḥ',
+    translation:
+      'Let go of all your worries, and simply turn to me alone for shelter. I will take care of everything — do not be afraid.',
     plot:
       "This is the most famous verse in the entire Gita, spoken right near the very end of Chapter 18 — after eighteen chapters of teaching, this is Krishna's final, complete instruction to Arjuna: let go of everything you're anxious about, and simply turn to me, for I will take care of the rest.",
     story:

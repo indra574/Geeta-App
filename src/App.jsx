@@ -5,6 +5,16 @@ import SignupPage from './SignupPage.jsx'
 import StoryReader from './StoryReader.jsx'
 
 const ACCESS_KEY = 'gita-app-access-email'
+const PROGRESS_KEY = 'gita-app-progress'
+
+function readLastProgress() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PROGRESS_KEY) ?? 'null')
+    return saved?.id ? saved : null
+  } catch {
+    return null
+  }
+}
 
 function App() {
   const [accessEmail, setAccessEmail] = useState(() =>
@@ -13,6 +23,8 @@ function App() {
   const [selectedId, setSelectedId] = useState(null)
   const selectedIndex = stories.findIndex((s) => s.id === selectedId)
   const selected = selectedIndex >= 0 ? stories[selectedIndex] : null
+  const lastProgress = readLastProgress()
+  const continueStory = lastProgress ? stories.find((s) => s.id === lastProgress.id) : null
 
   if (!accessEmail) {
     return (
@@ -64,6 +76,25 @@ function App() {
           your little one.
         </p>
       </header>
+
+      {continueStory && (
+        <div className="relative mx-auto mb-6 max-w-4xl px-5 sm:px-6">
+          <button
+            type="button"
+            onClick={() => setSelectedId(continueStory.id)}
+            className="flex w-full items-center gap-4 rounded-3xl bg-gradient-to-br from-purple-500 to-fuchsia-500 p-4 text-left shadow-lg shadow-purple-500/20 transition hover:-translate-y-0.5 active:scale-95 sm:p-5"
+          >
+            <IllustrationBadge emoji={continueStory.emoji} color={continueStory.color} size="sm" />
+            <span className="flex-1">
+              <span className="block text-xs font-bold tracking-wide text-white/80 uppercase">
+                Continue where you left off
+              </span>
+              <span className="block text-lg font-bold text-white">{continueStory.title}</span>
+            </span>
+            <span className="text-2xl text-white">→</span>
+          </button>
+        </div>
+      )}
 
       <main className="relative mx-auto grid max-w-4xl grid-cols-2 gap-4 px-5 pb-16 sm:grid-cols-3 sm:gap-5 sm:px-6">
         {stories.map((story, index) => (

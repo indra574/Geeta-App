@@ -64,8 +64,19 @@ function Paragraphs({ text, className }) {
   ))
 }
 
+const PROGRESS_KEY = 'gita-app-progress'
+
+function getInitialStep(storyId) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PROGRESS_KEY) ?? 'null')
+    return saved && saved.id === storyId && Number.isInteger(saved.step) ? saved.step : 0
+  } catch {
+    return 0
+  }
+}
+
 export default function StoryReader({ story, onBack, onNext }) {
-  const [stepIndex, setStepIndex] = useState(-1) // -1 intro, 0..N-1 content, N complete
+  const [stepIndex, setStepIndex] = useState(() => getInitialStep(story.id)) // 0..N-1 content, N complete
   const [isSpeaking, setIsSpeaking] = useState(false)
   const canSpeak = typeof window !== 'undefined' && 'speechSynthesis' in window
   const voiceRef = useRef(null)
@@ -75,7 +86,7 @@ export default function StoryReader({ story, onBack, onNext }) {
       {
         key: 'shlok',
         eyebrow: 'Original Sanskrit Shlok',
-        readText: story.transliteration,
+        readText: story.translation,
         bg: 'bg-orange-50',
         label: 'text-orange-600',
         content: (
@@ -83,9 +94,15 @@ export default function StoryReader({ story, onBack, onNext }) {
             <p className="font-devanagari text-center text-2xl leading-relaxed text-orange-900 sm:text-3xl">
               {story.sanskrit}
             </p>
-            <div className="my-4 h-px bg-orange-200" />
-            <p className="text-center text-base leading-relaxed text-orange-800 italic sm:text-lg">
+            <p className="mt-2 text-center text-sm leading-relaxed text-orange-500 italic">
               {story.transliteration}
+            </p>
+            <div className="my-4 h-px bg-orange-200" />
+            <p className="text-center text-xs font-bold tracking-wide text-orange-600 uppercase">
+              Shlok in English
+            </p>
+            <p className="mt-2 text-center text-lg leading-relaxed font-medium text-orange-900">
+              {story.translation}
             </p>
           </>
         ),
@@ -134,10 +151,15 @@ export default function StoryReader({ story, onBack, onNext }) {
   )
 
   const total = steps.length
-  const isIntro = stepIndex === -1
   const isComplete = stepIndex === total
-  const currentStep = !isIntro && !isComplete ? steps[stepIndex] : null
-  const progressPct = isIntro ? 0 : isComplete ? 100 : ((stepIndex + 1) / total) * 100
+  const currentStep = !isComplete ? steps[stepIndex] : null
+  const progressPct = isComplete ? 100 : ((stepIndex + 1) / total) * 100
+
+  useEffect(() => {
+    if (stepIndex < total) {
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify({ id: story.id, step: stepIndex }))
+    }
+  }, [story.id, stepIndex, total])
 
   useEffect(() => {
     if (!canSpeak) return
@@ -166,7 +188,7 @@ export default function StoryReader({ story, onBack, onNext }) {
   }
 
   const goNext = () => setStepIndex((i) => Math.min(i + 1, total))
-  const goBack = () => setStepIndex((i) => Math.max(i - 1, -1))
+  const goBack = () => setStepIndex((i) => Math.max(i - 1, 0))
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-orange-50 via-amber-50 to-sky-50">
@@ -188,15 +210,13 @@ export default function StoryReader({ story, onBack, onNext }) {
       </div>
 
       <div className="flex flex-1 flex-col items-center px-6 pt-6 pb-28">
-        {isIntro && (
-          <div className="flex flex-1 flex-col items-center justify-center text-center">
-            <IllustrationBadge emoji={story.emoji} color={story.color} size="lg" />
-            <h1 className="mt-5 text-3xl font-bold text-purple-900">{story.title}</h1>
-            <p className="mt-1 text-sm font-bold text-purple-500">{story.reference}</p>
-            <p className="mt-4 max-w-xs text-base font-medium text-purple-700">
-              The shlok, its plot, a story to share, and a mother's whisper — four
-              gentle steps.
-            </p>
+        {!isComplete && (
+          <div className="mb-5 flex w-full max-w-xl items-center gap-3">
+            <IllustrationBadge emoji={story.emoji} color={story.color} size="sm" />
+            <div>
+              <p className="text-base font-bold text-purple-900">{story.title}</p>
+              <p className="text-xs font-bold text-purple-500">{story.reference}</p>
+            </div>
           </div>
         )}
 
@@ -251,7 +271,7 @@ export default function StoryReader({ story, onBack, onNext }) {
 
       {!isComplete && (
         <div className="sticky bottom-0 z-10 flex gap-3 border-t border-black/5 bg-white/90 px-5 py-4 backdrop-blur">
-          {!isIntro && (
+          {stepIndex > 0 && (
             <button
               type="button"
               onClick={goBack}
@@ -266,7 +286,7 @@ export default function StoryReader({ story, onBack, onNext }) {
             onClick={goNext}
             className="flex-1 rounded-full bg-purple-600 py-4 text-lg font-bold text-white shadow-lg transition hover:bg-purple-700 active:scale-95"
           >
-            {isIntro ? "Let's Begin →" : stepIndex === total - 1 ? 'Finish ✓' : 'Continue'}
+            {stepIndex === total - 1 ? 'Finish ✓' : 'Continue'}
           </button>
         </div>
       )}
