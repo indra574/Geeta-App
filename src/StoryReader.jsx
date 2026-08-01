@@ -14,14 +14,30 @@ function getVoices() {
   })
 }
 
-// Prefer an Indian-accented voice when the browser/OS exposes one.
-// Availability varies by device — Chrome on Android/desktop and Edge on
-// Windows commonly ship an en-IN voice, Safari/iOS often does not.
-function pickIndianVoice(voices) {
+// Prefer a female, Indian-accented voice when the browser/OS exposes one.
+// The Web Speech API has no gender field, so we go by known voice names
+// (e.g. Heera/Neerja on Windows/Edge, Lekha for Hindi). Availability varies
+// a lot by device — Android Chrome and Windows Edge tend to have the best
+// selection of en-IN voices, Safari/iOS the least.
+const FEMALE_NAME_HINTS = ['heera', 'neerja', 'lekha', 'kalpana', 'veena', 'priya', 'female']
+const MALE_NAME_HINTS = ['ravi', 'prabhat', 'rishi', 'hemant', 'male']
+
+function isIndian(voice) {
+  return voice.lang === 'en-IN' || voice.lang === 'hi-IN' || /india/i.test(voice.name)
+}
+function isFemaleNamed(voice) {
+  return FEMALE_NAME_HINTS.some((hint) => voice.name.toLowerCase().includes(hint))
+}
+function isMaleNamed(voice) {
+  return MALE_NAME_HINTS.some((hint) => voice.name.toLowerCase().includes(hint))
+}
+
+function pickIndianFemaleVoice(voices) {
   return (
-    voices.find((v) => v.lang === 'en-IN') ||
-    voices.find((v) => v.lang === 'hi-IN') ||
-    voices.find((v) => /india/i.test(v.name)) ||
+    voices.find((v) => isIndian(v) && isFemaleNamed(v)) ||
+    voices.find((v) => isIndian(v) && !isMaleNamed(v)) ||
+    voices.find((v) => isIndian(v)) ||
+    voices.find((v) => isFemaleNamed(v) && v.lang?.startsWith('en')) ||
     voices.find((v) => v.lang?.startsWith('en')) ||
     voices[0] ||
     null
@@ -59,7 +75,7 @@ export default function StoryReader({ story, onBack }) {
   useEffect(() => {
     if (!canSpeak) return
     getVoices().then((voices) => {
-      voiceRef.current = pickIndianVoice(voices)
+      voiceRef.current = pickIndianFemaleVoice(voices)
     })
     return () => {
       window.speechSynthesis.cancel()
