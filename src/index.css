@@ -8,3 +8,7 @@ body {
   margin: 0;
   font-family: 'Baloo 2', 'Segoe UI', system-ui, sans-serif;
 }
+
+.font-devanagari {
+  font-family: 'Noto Sans Devanagari', 'Baloo 2', system-ui, sans-serif;
+}

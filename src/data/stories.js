@@ -1,100 +1,94 @@
-// Bhagavad Gita themes retold in very simple language for children under 5.
-// Each story is meant to be read aloud slowly by a parent, one line at a time.
+// Real verses (shlokas) from the Bhagavad Gita, chosen for themes that are
+// gentle and graspable for very young children, with a plain meaning for the
+// parent and a soft one-line "mother's whisper" for the little one.
 
 export const stories = [
-  {
-    id: 'best-friend',
-    emoji: '🤗',
-    color: 'from-rose-300 to-rose-400',
-    title: "Krishna, the Best Friend",
-    lines: [
-      'Once, a prince named Arjuna felt scared.',
-      'He did not want to fight in a big battle.',
-      'His best friend Krishna sat beside him.',
-      'Krishna listened, and spoke kind, wise words.',
-      'Slowly, Arjuna felt brave and calm again.',
-    ],
-    meaning: 'When we feel scared, a loving friend can help us feel brave again.',
-    parentNote:
-      "This is how the Bhagavad Gita begins: Arjuna is afraid, and Krishna comforts him. All of Krishna's wisdom in the Gita starts from that one act of a friend sitting down and listening.",
-  },
   {
     id: 'try-your-best',
     emoji: '🏖️',
     color: 'from-amber-300 to-orange-400',
-    title: 'Build Your Sandcastle',
-    lines: [
-      'Krishna told Arjuna something very wise.',
-      'Do your work with your whole heart.',
-      "Don't worry too much about what happens after.",
-      'It is like building a sandcastle at the beach.',
-      'You build it happily, even if the waves wash it away.',
-    ],
-    meaning: 'Try your best and be happy — you don\'t need to worry about the result.',
-    parentNote:
-      'This is a gentle child-sized version of "karma yoga" — act well, and hold the outcome lightly. With a toddler this shows up as: it\'s okay if the tower falls, the fun was in building it.',
+    title: 'Do Your Best',
+    reference: 'Bhagavad Gita, Chapter 2, Verse 47',
+    sanskrit:
+      'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन। मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥',
+    transliteration:
+      "karmaṇy-evādhikāras te mā phaleṣu kadācana, mā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi",
+    simpleMeaning:
+      'You have the right to do your work, but never to the fruits of your work. Do not work only for a reward, and do not stop working either — just do your best.',
+    mothersWhisper:
+      "Do your best, my love — the trying is the treasure, not the prize.",
   },
   {
-    id: 'everyone-special',
-    emoji: '🐝',
-    color: 'from-yellow-300 to-amber-400',
-    title: 'Everyone Has Something Special',
-    lines: [
-      'A little bee makes sweet honey.',
-      'A little bird builds a soft nest.',
-      'A little fish swims in the water.',
-      'Krishna said everyone has their own special gift.',
-      'And it feels good to use it well.',
-    ],
-    meaning: 'You are special, and the things you love doing matter.',
-    parentNote:
-      'This softens the idea of "svadharma" (one\'s own duty/nature). For a young child, it simply becomes: everybody is good at different things, and that is wonderful, not something to compare.',
-  },
-  {
-    id: 'be-gentle',
-    emoji: '🐞',
-    color: 'from-emerald-300 to-green-400',
-    title: 'Be Gentle With Everyone',
-    lines: [
-      'Krishna said love lives inside every living thing.',
-      'It is inside every person.',
-      'It is inside every animal.',
-      'It is even inside a tiny little bug.',
-      'So we hold everything gently, and are kind.',
-    ],
-    meaning: 'Be gentle and kind to everyone and everything around you.',
-    parentNote:
-      'This reflects the Gita\'s idea that the same spirit lives in all beings. In practice with a toddler: gentle hands with the cat, kindness to insects, no one is too small to matter.',
-  },
-  {
-    id: 'talk-feelings',
-    emoji: '💛',
+    id: 'feelings-come-and-go',
+    emoji: '🌦️',
     color: 'from-sky-300 to-blue-400',
-    title: "It's Okay to Say How You Feel",
-    lines: [
-      'Before the battle, Arjuna felt many big feelings.',
-      'He told Krishna: I feel scared. I feel sad. I feel confused.',
-      'Krishna listened to all of it first.',
-      'Then he gently helped Arjuna feel better.',
-    ],
-    meaning: 'It is okay to talk about your feelings — sharing them helps you feel better.',
-    parentNote:
-      'A lovely emotional-literacy moment hides in the Gita\'s opening chapter: Arjuna names his feelings out loud before anything else happens. Naming feelings together is a great toddler practice.',
+    title: 'Feelings Come and Go',
+    reference: 'Bhagavad Gita, Chapter 2, Verse 14',
+    sanskrit:
+      'मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः। आगमापायिनोऽनित्यास्तांस्तितिक्षस्व भारत॥',
+    transliteration:
+      "mātrā-sparśās tu kaunteya śītoṣṇa-sukha-duḥkha-dāḥ, āgamāpāyino 'nityās tāṁs titikṣasva bhārata",
+    simpleMeaning:
+      'Feelings like heat and cold, joy and sorrow, come from our senses touching the world. They come and go, they do not stay forever — so we can be patient with them.',
+    mothersWhisper:
+      'This feeling will pass, sweet one — like sunshine after rain.',
+  },
+  {
+    id: 'own-best-friend',
+    emoji: '🤗',
+    color: 'from-rose-300 to-rose-400',
+    title: 'Be Your Own Best Friend',
+    reference: 'Bhagavad Gita, Chapter 6, Verse 5',
+    sanskrit:
+      'उद्धरेदात्मनात्मानं नात्मानमवसादयेत्। आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः॥',
+    transliteration:
+      'uddhared ātmanātmānaṁ nātmānam avasādayet, ātmaiva hyātmano bandhur ātmaiva ripur ātmanaḥ',
+    simpleMeaning:
+      'Lift yourself up with your own effort, and never put yourself down. You can be your own best friend — be gentle with yourself.',
+    mothersWhisper: 'Be kind to yourself, little one, just like I am kind to you.',
+  },
+  {
+    id: 'loves-everyone-same',
+    emoji: '💛',
+    color: 'from-fuchsia-300 to-purple-400',
+    title: 'Loves Everyone the Same',
+    reference: 'Bhagavad Gita, Chapter 9, Verse 29',
+    sanskrit:
+      'समोऽहं सर्वभूतेषु न मे द्वेष्योऽस्ति न प्रियः। ये भजन्ति तु मां भक्त्या मयि ते तेषु चाप्यहम्॥',
+    transliteration:
+      "samo 'haṁ sarva-bhūteṣu na me dveṣyo 'sti na priyaḥ, ye bhajanti tu māṁ bhaktyā mayi te teṣu cāpy aham",
+    simpleMeaning:
+      'I am equal to all beings — I do not favor one or dislike another. Everyone who turns to me with love, I hold close.',
+    mothersWhisper: 'Krishna loves everyone the same, just like I love you, always.',
+  },
+  {
+    id: 'lives-in-your-heart',
+    emoji: '💗',
+    color: 'from-pink-300 to-rose-400',
+    title: 'Lives in Your Heart',
+    reference: 'Bhagavad Gita, Chapter 18, Verse 61',
+    sanskrit:
+      'ईश्वरः सर्वभूतानां हृद्देशेऽर्जुन तिष्ठति। भ्रामयन्सर्वभूतानि यन्त्रारूढानि मायया॥',
+    transliteration:
+      "īśvaraḥ sarva-bhūtānāṁ hṛd-deśe 'rjuna tiṣṭhati, bhrāmayan sarva-bhūtāni yantrārūḍhāni māyayā",
+    simpleMeaning:
+      'The Divine lives in the heart of every single being, Arjuna, guiding all of us along on our journey.',
+    mothersWhisper:
+      'Krishna lives right here, in your heart — (touch their chest) — always with you.',
   },
   {
     id: 'everywhere',
     emoji: '🌞',
-    color: 'from-fuchsia-300 to-purple-400',
-    title: 'Love Is All Around',
-    lines: [
-      'Krishna told Arjuna a beautiful secret.',
-      'I am in the warm sun.',
-      'I am in the gentle moon.',
-      'I am in every flower, and in every heart.',
-      'Love and goodness are everywhere we look.',
-    ],
-    meaning: 'Love and goodness are all around us, everywhere we look.',
-    parentNote:
-      'A tiny taste of the Gita\'s "vibhuti" and "vishvarupa" chapters, where Krishna reveals the divine present in all things — simplified here to something a toddler can feel: the world is full of love if we look for it.',
+    color: 'from-yellow-300 to-amber-400',
+    title: 'Everywhere You Look',
+    reference: 'Bhagavad Gita, Chapter 6, Verse 30',
+    sanskrit:
+      'यो मां पश्यति सर्वत्र सर्वं च मयि पश्यति। तस्याहं न प्रणश्यामि स च मे न प्रणश्यति॥',
+    transliteration:
+      'yo māṁ paśyati sarvatra sarvaṁ ca mayi paśyati, tasyāhaṁ na praṇaśyāmi sa ca me na praṇaśyati',
+    simpleMeaning:
+      'Whoever sees me everywhere, and sees everything in me, never loses me, and I never lose them.',
+    mothersWhisper:
+      'Look around, my love — Krishna is in the sun, the flowers, and in you too.',
   },
 ]

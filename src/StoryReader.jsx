@@ -1,19 +1,29 @@
 import { useEffect, useState } from 'react'
 
-function speak(text, onEnd) {
+function speakSequence(texts, onEnd) {
   if (!('speechSynthesis' in window)) return
   window.speechSynthesis.cancel()
-  const utterance = new SpeechSynthesisUtterance(text)
-  utterance.rate = 0.8
-  utterance.pitch = 1.05
-  utterance.onend = onEnd
-  utterance.onerror = onEnd
-  window.speechSynthesis.speak(utterance)
+  let index = 0
+  const speakNext = () => {
+    if (index >= texts.length) {
+      onEnd()
+      return
+    }
+    const utterance = new SpeechSynthesisUtterance(texts[index])
+    utterance.rate = 0.8
+    utterance.pitch = 1.05
+    utterance.onend = () => {
+      index += 1
+      speakNext()
+    }
+    utterance.onerror = onEnd
+    window.speechSynthesis.speak(utterance)
+  }
+  speakNext()
 }
 
 export default function StoryReader({ story, onBack }) {
   const [isSpeaking, setIsSpeaking] = useState(false)
-  const [showParentNote, setShowParentNote] = useState(false)
   const canSpeak = typeof window !== 'undefined' && 'speechSynthesis' in window
 
   useEffect(() => {
@@ -29,7 +39,10 @@ export default function StoryReader({ story, onBack }) {
       return
     }
     setIsSpeaking(true)
-    speak(story.lines.join('. '), () => setIsSpeaking(false))
+    speakSequence(
+      [story.transliteration, story.simpleMeaning, story.mothersWhisper],
+      () => setIsSpeaking(false),
+    )
   }
 
   return (
@@ -48,6 +61,9 @@ export default function StoryReader({ story, onBack }) {
           <h1 className="mt-2 text-center text-3xl font-extrabold text-purple-900">
             {story.title}
           </h1>
+          <p className="mt-1 text-center text-sm font-semibold text-purple-500">
+            {story.reference}
+          </p>
 
           {canSpeak && (
             <div className="mt-5 flex justify-center">
@@ -61,40 +77,41 @@ export default function StoryReader({ story, onBack }) {
             </div>
           )}
 
-          <div className="mt-8 space-y-4">
-            {story.lines.map((line) => (
-              <p
-                key={line}
-                className="text-center text-xl leading-relaxed text-gray-800 sm:text-2xl"
-              >
-                {line}
-              </p>
-            ))}
-          </div>
-
-          <div className="mt-8 rounded-2xl bg-amber-100 p-5 text-center">
-            <p className="text-sm font-bold uppercase tracking-wide text-amber-700">
-              What does it mean?
+          <section className="mt-8 rounded-2xl bg-orange-50 p-5 text-center">
+            <p className="text-xs font-bold uppercase tracking-wide text-orange-600">
+              Original Sanskrit Shlok
             </p>
-            <p className="mt-2 text-lg font-semibold text-amber-900">
-              {story.meaning}
+            <p className="font-devanagari mt-3 text-2xl leading-relaxed text-orange-900 sm:text-3xl">
+              {story.sanskrit}
             </p>
-          </div>
+          </section>
 
-          <div className="mt-4">
-            <button
-              type="button"
-              onClick={() => setShowParentNote((v) => !v)}
-              className="w-full rounded-2xl border-2 border-dashed border-purple-300 p-4 text-left text-sm font-bold text-purple-700 hover:bg-purple-50"
-            >
-              {showParentNote ? '▲ Hide' : '▼ Show'} notes for parents
-            </button>
-            {showParentNote && (
-              <p className="mt-3 rounded-2xl bg-purple-50 p-4 text-sm leading-relaxed text-purple-800">
-                {story.parentNote}
-              </p>
-            )}
-          </div>
+          <section className="mt-4 rounded-2xl bg-blue-50 p-5 text-center">
+            <p className="text-xs font-bold uppercase tracking-wide text-blue-600">
+              Shlok in English
+            </p>
+            <p className="mt-3 text-lg leading-relaxed italic text-blue-900">
+              {story.transliteration}
+            </p>
+          </section>
+
+          <section className="mt-4 rounded-2xl bg-amber-100 p-5 text-center">
+            <p className="text-xs font-bold uppercase tracking-wide text-amber-700">
+              Simple Meaning
+            </p>
+            <p className="mt-3 text-lg font-semibold leading-relaxed text-amber-900">
+              {story.simpleMeaning}
+            </p>
+          </section>
+
+          <section className="mt-4 rounded-2xl bg-rose-100 p-5 text-center">
+            <p className="text-xs font-bold uppercase tracking-wide text-rose-600">
+              🤫 Mother's Whisper
+            </p>
+            <p className="mt-3 text-xl font-semibold leading-relaxed text-rose-900">
+              "{story.mothersWhisper}"
+            </p>
+          </section>
         </div>
       </div>
     </div>

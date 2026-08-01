@@ -29,11 +29,16 @@ function App() {
             key={story.id}
             type="button"
             onClick={() => setSelectedId(story.id)}
-            className={`flex items-center gap-4 rounded-3xl bg-gradient-to-br ${story.color} p-5 text-left shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:shadow-xl active:translate-y-0`}
+            className={`flex items-center gap-4 rounded-3xl bg-gradient-to-br ${story.color} p-5 text-left shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:scale-95`}
           >
             <span className="text-5xl drop-shadow-sm">{story.emoji}</span>
-            <span className="text-xl font-bold text-white drop-shadow-sm">
-              {story.title}
+            <span className="flex flex-col">
+              <span className="text-xl font-bold text-white drop-shadow-sm">
+                {story.title}
+              </span>
+              <span className="text-xs font-semibold text-white/80">
+                {story.reference}
+              </span>
             </span>
           </button>
         ))}
