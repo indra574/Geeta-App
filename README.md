@@ -57,7 +57,9 @@ just won't be persisted anywhere until storage is wired up.
 
 ## Adding a new verse
 
-Verses live in `src/data/stories.js`. Each entry has an `id`, `emoji`,
-Tailwind gradient `color`, `title`, `reference` (chapter.verse), `sanskrit`,
-`transliteration`, `simpleMeaning`, `story` (a short tale to share), and
-`mothersWhisper` (a letter-style passage, paragraphs separated by `\n\n`).
+Verses live in `src/data/stories.js`, listed in Gita order (by chapter, then
+verse). Each entry has an `id`, `emoji`, Tailwind gradient `color`, `title`,
+`reference` (chapter.verse), `sanskrit`, `transliteration`, `plot` (the
+Mahabharata narrative context — when and why this shlok was spoken), `story`
+(a short tale to share), and `mothersWhisper` (a letter-style passage,
+paragraphs separated by `\n\n`).

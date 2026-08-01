@@ -73,38 +73,32 @@ export default function StoryReader({ story, onBack, onNext }) {
   const steps = useMemo(
     () => [
       {
-        key: 'sanskrit',
+        key: 'shlok',
         eyebrow: 'Original Sanskrit Shlok',
         readText: story.transliteration,
         bg: 'bg-orange-50',
         label: 'text-orange-600',
         content: (
-          <p className="font-devanagari text-center text-2xl leading-relaxed text-orange-900 sm:text-3xl">
-            {story.sanskrit}
-          </p>
+          <>
+            <p className="font-devanagari text-center text-2xl leading-relaxed text-orange-900 sm:text-3xl">
+              {story.sanskrit}
+            </p>
+            <div className="my-4 h-px bg-orange-200" />
+            <p className="text-center text-base leading-relaxed text-orange-800 italic sm:text-lg">
+              {story.transliteration}
+            </p>
+          </>
         ),
       },
       {
-        key: 'transliteration',
-        eyebrow: 'Shlok in English',
-        readText: story.transliteration,
-        bg: 'bg-blue-50',
-        label: 'text-blue-600',
-        content: (
-          <p className="text-center text-lg leading-relaxed text-blue-900 italic">
-            {story.transliteration}
-          </p>
-        ),
-      },
-      {
-        key: 'meaning',
-        eyebrow: 'Simple Meaning',
-        readText: story.simpleMeaning,
+        key: 'plot',
+        eyebrow: 'Plot',
+        readText: story.plot,
         bg: 'bg-amber-100',
         label: 'text-amber-700',
         content: (
           <Paragraphs
-            text={story.simpleMeaning}
+            text={story.plot}
             className="text-left text-lg leading-relaxed font-medium text-amber-900"
           />
         ),
@@ -200,7 +194,7 @@ export default function StoryReader({ story, onBack, onNext }) {
             <h1 className="mt-5 text-3xl font-bold text-purple-900">{story.title}</h1>
             <p className="mt-1 text-sm font-bold text-purple-500">{story.reference}</p>
             <p className="mt-4 max-w-xs text-base font-medium text-purple-700">
-              The shlok, its meaning, a story to share, and a mother's whisper — five
+              The shlok, its plot, a story to share, and a mother's whisper — four
               gentle steps.
             </p>
           </div>
