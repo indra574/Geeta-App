@@ -5,10 +5,19 @@ import StoryReader from './StoryReader.jsx'
 
 function App() {
   const [selectedId, setSelectedId] = useState(null)
-  const selected = stories.find((s) => s.id === selectedId) ?? null
+  const selectedIndex = stories.findIndex((s) => s.id === selectedId)
+  const selected = selectedIndex >= 0 ? stories[selectedIndex] : null
 
   if (selected) {
-    return <StoryReader story={selected} onBack={() => setSelectedId(null)} />
+    const nextStory = stories[(selectedIndex + 1) % stories.length]
+    return (
+      <StoryReader
+        key={selected.id}
+        story={selected}
+        onBack={() => setSelectedId(null)}
+        onNext={() => setSelectedId(nextStory.id)}
+      />
+    )
   }
 
   return (
@@ -31,7 +40,7 @@ function App() {
           🦚
         </div>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-purple-900 sm:text-5xl">
-          Geeta for Little Ones
+          Gita for Little Ones
         </h1>
         <p className="mx-auto mt-3 max-w-md text-lg font-medium text-purple-700">
           Sit together and read these gentle Bhagavad Gita verses out loud to

@@ -1,4 +1,4 @@
-# Geeta for Little Ones
+# Gita for Little Ones
 
 A gentle, colorful web app for parents to read simple Bhagavad Gita stories
 aloud to children under five.
