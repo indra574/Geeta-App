@@ -1,12 +1,29 @@
 import { useState } from 'react'
 import { stories } from './data/stories.js'
 import IllustrationBadge from './IllustrationBadge.jsx'
+import SignupPage from './SignupPage.jsx'
 import StoryReader from './StoryReader.jsx'
 
+const ACCESS_KEY = 'gita-app-access-email'
+
 function App() {
+  const [accessEmail, setAccessEmail] = useState(() =>
+    typeof window === 'undefined' ? null : localStorage.getItem(ACCESS_KEY),
+  )
   const [selectedId, setSelectedId] = useState(null)
   const selectedIndex = stories.findIndex((s) => s.id === selectedId)
   const selected = selectedIndex >= 0 ? stories[selectedIndex] : null
+
+  if (!accessEmail) {
+    return (
+      <SignupPage
+        onSignedUp={(email) => {
+          localStorage.setItem(ACCESS_KEY, email)
+          setAccessEmail(email)
+        }}
+      />
+    )
+  }
 
   if (selected) {
     const nextStory = stories[(selectedIndex + 1) % stories.length]

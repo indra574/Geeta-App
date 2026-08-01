@@ -1,22 +1,23 @@
 # Gita for Little Ones
 
-A gentle, colorful web app for parents to read simple Bhagavad Gita stories
-aloud to children under five.
-
-Each story retells a core Gita theme (friendship, effort without worry over
-outcomes, everyone having their own gift, kindness to all beings, naming
-your feelings, and finding love everywhere) in a few very simple sentences,
-followed by a one-line "what does it mean?" for the child and a longer note
-for the parent with context on the original teaching.
+A gentle, colorful web app for parents to read the Bhagavad Gita's wisdom
+out loud to children under five — 24 real verses, each unpacked in a
+Duolingo-style step-through lesson.
 
 ## Features
 
-- A colorful, tap-friendly grid of stories on the home screen.
-- A story reader with big text, one short sentence per line.
-- A **"Read to me"** button that uses the browser's built-in text-to-speech,
-  so the app can narrate the story too.
-- A collapsible **"Notes for parents"** section on each story with a bit more
-  context, in case the child asks questions.
+- A signup/landing page describing the app, gated behind an email address
+  (stored server-side; see "Email signup storage" below).
+- A colorful, tap-friendly grid of 24 verses on the home screen, each with
+  an illustrated badge and its chapter.verse reference.
+- A step-through lesson per verse: the original Sanskrit shlok, an English
+  transliteration, an elaborated simple meaning, a short story a parent can
+  tell their child, and a warm "mother's whisper" letter — one screen at a
+  time, with a progress bar and Continue/Back navigation, ending in a
+  completion screen that can jump straight into the next verse.
+- A **"Read to me"** button on every step that uses the browser's built-in
+  text-to-speech, preferring a female, Indian-accented voice where the
+  device/browser provides one.
 
 ## Getting started
 
@@ -25,7 +26,11 @@ npm install
 npm run dev
 ```
 
-Then open the printed local URL in your browser.
+Then open the printed local URL in your browser. Note that `/api/signup`
+(see below) only runs when deployed on Vercel (or via `vercel dev`), not
+under plain `vite dev` — locally, the signup form still unlocks the app
+even if that request fails, since the frontend treats the save as
+best-effort.
 
 ### Other scripts
 
@@ -33,8 +38,26 @@ Then open the printed local URL in your browser.
 - `npm run preview` — preview the production build locally
 - `npm run lint` — lint the source
 
-## Adding a new story
+## Email signup storage
 
-Stories live in `src/data/stories.js`. Each entry has an `id`, `emoji`,
-Tailwind gradient `color`, `title`, an array of short `lines` to read aloud,
-a one-line `meaning`, and a longer `parentNote`.
+`api/signup.js` is a Vercel serverless function that stores each signup
+email in a Postgres `signups` table (created automatically on first use).
+To enable it on a deployed project:
+
+1. In the Vercel dashboard, open the project → **Storage** tab → create a
+   **Postgres** database (Neon, via the Vercel Marketplace integration) and
+   connect it to this project. This injects a `DATABASE_URL` (or
+   `POSTGRES_URL`) environment variable automatically — no secrets need to
+   be pasted into the code.
+2. Redeploy. New signups will land in the `signups` table.
+
+If no database is connected, the signup form still unlocks the app locally
+(the frontend never blocks access on the API call succeeding) — emails
+just won't be persisted anywhere until storage is wired up.
+
+## Adding a new verse
+
+Verses live in `src/data/stories.js`. Each entry has an `id`, `emoji`,
+Tailwind gradient `color`, `title`, `reference` (chapter.verse), `sanskrit`,
+`transliteration`, `simpleMeaning`, `story` (a short tale to share), and
+`mothersWhisper` (a letter-style passage, paragraphs separated by `\n\n`).
